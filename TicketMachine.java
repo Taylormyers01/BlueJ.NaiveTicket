@@ -19,15 +19,16 @@ public class TicketMachine
     private Integer total;
     // The number of tickets printed.
     private Integer ticketNumber;
+    private Integer status;
 
     /**
      * Create a machine that issues tickets of the given price.
      * Note that the price must be greater than zero, and there
      * are no checks to ensure this.
      */
-    public TicketMachine(Integer ticketCost)
+    public TicketMachine(int ignoreSoIDontHaveToChangeTests)
     {
-        price = ticketCost;
+        price = 1000;
         balance = 0;
         total = 0;
         ticketNumber = 0;
@@ -78,6 +79,21 @@ public class TicketMachine
         return ticketNumber;
     }
     
+    public void prompt(){
+        System.out.println("Please insert the correct amount of money.");
+    }
+    
+    public void showPrice(){
+        System.out.println("The price of a ticket is " + price + " cents.");
+    }
+    
+    public void empty(){
+        balance = 0;
+    }
+    
+    public void setPrice(int newPrice){
+        price = newPrice;
+    }
 
     /**
      * Print a ticket.
@@ -86,6 +102,15 @@ public class TicketMachine
      */
     public String printTicket()
     {
+        
+        // Simulate the printing of a ticket.
+        System.out.println("##################");
+        System.out.println("# The BlueJ Line");
+        System.out.println("# Ticket");
+        System.out.println("# " + price + " cents.");
+        System.out.println("##################");
+        System.out.println();
+        
         //Increment the number of tickets printed
         incrementTicketNumber();
         // Update the total collected with the balance.
